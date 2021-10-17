@@ -2,8 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:e_commerce_2/const/AppColors.dart';
-//import 'package:e_commerce_2/ui/bottom_nav_pages/cart.dart';
-import 'package:e_commerce_2/ui/bottom_nav_pages/favourite.dart';
+import 'package:e_commerce_2/widgets/customButton.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -187,21 +186,9 @@ class _ItemDetailsState extends State<ItemDetails> {
                 ),
               ),
               Center(
-                child: ElevatedButton.icon(
-                  style: ButtonStyle(
-                    shadowColor: MaterialStateProperty.all(Colors.orange),
-                    backgroundColor:
-                        MaterialStateProperty.all(AppColor.lightOrange),
-                  ),
-                  onPressed: () {
-                    addDataToCart();
-                    // Navigator.push(
-                    //     context, CupertinoPageRoute(builder: (_) => Cart()));
-                    //signIn();
-                  },
-                  icon: Icon(Icons.login),
-                  label: Text("Add to Cart"),
-                ),
+                child: customButton("Add to Cart", () {
+                  addDataToCart();
+                }, Icons.shopping_cart),
               ),
               SizedBox(
                 height: 15,

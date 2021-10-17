@@ -32,9 +32,6 @@ class _HomeState extends State<Home> {
         _carouselImages.add(
           qn.docs[i]["img"],
         );
-        // print(
-        //   qn.docs[i]["img"],
-        // );
       }
     });
     return qn.docs;
@@ -182,7 +179,6 @@ class _HomeState extends State<Home> {
                   itemBuilder: (_, index) {
                     return GestureDetector(
                       onTap: () {
-                        //print(_products[index]);
                         Navigator.push(
                             context,
                             MaterialPageRoute(

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_commerce_2/const/AppColors.dart';
+import 'package:e_commerce_2/widgets/customButton.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -64,15 +65,9 @@ class _ProfileState extends State<Profile> {
         SizedBox(
           height: 15,
         ),
-        ElevatedButton.icon(
-          style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(AppColor.lightOrange)),
-          onPressed: () {
-            updateData();
-          },
-          icon: Icon(Icons.update),
-          label: Text("Update"),
-        ),
+        customButton("Update", () {
+          updateData();
+        }, Icons.update),
       ],
     );
   }

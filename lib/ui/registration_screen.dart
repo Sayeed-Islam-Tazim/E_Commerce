@@ -1,4 +1,5 @@
 import 'package:e_commerce_2/ui/user_form.dart';
+import 'package:e_commerce_2/widgets/customButton.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -155,18 +156,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       SizedBox(
                         height: 20,
                       ),
-                      ElevatedButton.icon(
-                        style: ButtonStyle(
-                          shadowColor: MaterialStateProperty.all(Colors.orange),
-                          backgroundColor:
-                              MaterialStateProperty.all(AppColor.lightOrange),
-                        ),
-                        onPressed: () {
-                          signUp();
-                        },
-                        icon: Icon(Icons.app_registration),
-                        label: Text("Sign Up"),
-                      ),
+                      customButton("Sign Up", () {
+                        signUp();
+                      }, Icons.app_registration),
                       SizedBox(
                         height: 20,
                       ),

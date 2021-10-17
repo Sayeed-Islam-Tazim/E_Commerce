@@ -3,6 +3,7 @@ import 'package:e_commerce_2/ui/bottom_nav_pages/cart.dart';
 import 'package:e_commerce_2/ui/bottom_nav_pages/favourite.dart';
 import 'package:e_commerce_2/ui/bottom_nav_pages/home.dart';
 import 'package:e_commerce_2/ui/bottom_nav_pages/profile.dart';
+import 'package:e_commerce_2/ui/bottom_nav_pages/provider.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavController extends StatefulWidget {
@@ -13,7 +14,7 @@ class BottomNavController extends StatefulWidget {
 }
 
 class _BottomNavControllerState extends State<BottomNavController> {
-  final _pages = [Home(), Cart(), Favourite(), Profile()];
+  final _pages = [Home(), Cart(), Favourite(), Profile(), FlutterProvider()];
   int _selectedIndex = 0;
 
   @override
@@ -44,6 +45,10 @@ class _BottomNavControllerState extends State<BottomNavController> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.person),
                 label: "Profile",
+                backgroundColor: Colors.grey),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.functions_sharp),
+                label: "Provider",
                 backgroundColor: Colors.grey),
           ],
           currentIndex: _selectedIndex,

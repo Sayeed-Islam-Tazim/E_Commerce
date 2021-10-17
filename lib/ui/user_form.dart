@@ -1,10 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_commerce_2/const/AppColors.dart';
 import 'package:e_commerce_2/ui/bottom_nav_controller.dart';
+import 'package:e_commerce_2/widgets/customButton.dart';
+import 'package:e_commerce_2/widgets/myTextField.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 //import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class UserForm extends StatefulWidget {
@@ -85,18 +88,10 @@ class _UserFormState extends State<UserForm> {
                 SizedBox(
                   height: 30,
                 ),
-                TextField(
-                  controller: _nameEditingController,
-                  decoration: InputDecoration(
-                    labelText: "Full Name",
-                  ),
-                ),
-                TextField(
-                  controller: _phoneEditingController,
-                  decoration: InputDecoration(
-                    labelText: "Phone number",
-                  ),
-                ),
+                myTexField(
+                    TextInputType.name, _nameEditingController, "Full Name"),
+                myTexField(TextInputType.number, _phoneEditingController,
+                    "Phone number"),
                 TextField(
                   controller: _dobEditingController,
                   decoration: InputDecoration(
@@ -129,26 +124,13 @@ class _UserFormState extends State<UserForm> {
                         onChanged: (_) {},
                       )),
                 ),
-                TextField(
-                  controller: _ageEditingController,
-                  decoration: InputDecoration(
-                    labelText: "Age",
-                  ),
-                ),
+                myTexField(TextInputType.number, _ageEditingController, "Age"),
                 SizedBox(
                   height: 90,
                 ),
-                ElevatedButton.icon(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(AppColor.lightOrange),
-                  ),
-                  onPressed: () {
-                    sendUserDatatoDB();
-                  },
-                  icon: Icon(Icons.arrow_forward_ios),
-                  label: Text("Submit"),
-                ),
+                customButton("Submit", () {
+                  sendUserDatatoDB();
+                }, Icons.arrow_forward_ios),
               ],
             ),
           ),

@@ -1,6 +1,7 @@
 import 'package:e_commerce_2/const/AppColors.dart';
 import 'package:e_commerce_2/ui/bottom_nav_controller.dart';
 import 'package:e_commerce_2/ui/registration_screen.dart';
+import 'package:e_commerce_2/widgets/customButton.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -154,17 +155,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       SizedBox(
                         height: 20,
                       ),
-                      ElevatedButton.icon(
-                        style: ButtonStyle(
-                          shadowColor: MaterialStateProperty.all(Colors.orange),
-                          backgroundColor:
-                              MaterialStateProperty.all(AppColor.lightOrange),
-                        ),
-                        onPressed: () {
+                      customButton(
+                        "Login",
+                        () {
                           signIn();
                         },
-                        icon: Icon(Icons.login),
-                        label: Text("Login"),
+                        Icons.login,
                       ),
                       SizedBox(
                         height: 20,
